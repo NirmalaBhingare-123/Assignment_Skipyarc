@@ -20,4 +20,8 @@ export class UserComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  submitInfo(value) {
+    console.log("all info", value);
+  }
 }
