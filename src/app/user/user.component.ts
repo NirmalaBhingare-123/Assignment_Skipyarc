@@ -44,18 +44,17 @@ export class UserComponent implements OnInit {
     }
   }
   submitInfo(value) {
-    console.log(".......", value.c1);
+    console.log(".......", value);
     if (value.gender == "true") {
       value.gender = "Male";
     } else {
       value.gender = "Female";
     }
-    // if (value.c1 == true || value.c2 == true) {
-    //   value.c1 = "MCS";
-    //   value.c2 = "MCA";
-    // } else {
-    //   value.c1 = " ";
-    // }
+    if (value.c1 == true) {
+      value.c1 = "MCS";
+    } else {
+      value.c1 = " ";
+    }
     this.userDetails.push(value);
     this.editData.firstName = " ";
     this.editData.middleName = "";
