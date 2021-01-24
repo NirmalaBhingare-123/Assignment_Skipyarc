@@ -15,42 +15,44 @@
   </div>
 					<div>
 						<label>Date Of Birth</label>
-						<input type="date" class="form-control" name="dob" [(ngModel)]="editData.dateOfBirth"/>
-  </div>
-						<div>
-							<label>Qualification</label>
-						</div>
-						<div class="checkbox form-check">
+						<input type="date" class="form-control" name="dob" [(ngModel)]="age"/><br/>
+						<button type="button" class="btn btn-primary" (click)="ageCalculator()"> AgeCalculate </button>
+						<p *ngIf="age">Tu edad es {{ showAge }}</p>
+					</div>
+					<div>
+						<label>Qualification</label>
+					</div>
+					<div class="checkbox form-check">
 
-							<input class="form-check-input" type="checkbox" [checked]="c1" name="c1" [(ngModel)]="c1">
-							<label class="form-check-label">MCS</label>
-							<input class="form-check-input" type="checkbox" [checked]="c2" name="c2" [(ngModel)]="c2">
-							<label class="form-check-label">MCA</label>
-							<input class="form-check-input" type="checkbox" [checked]="c3" name="c3" [(ngModel)]="c3">
-							<label class="form-check-label">BCS</label>
-							<input class="form-check-input" type="checkbox" [checked]="c4" name="c4" [(ngModel)]="c4">
-							<label class="form-check-label">BCA</label>
-						</div>
-						<div>
-							<label>City</label>
-						</div>
-						<select class="form-control" name="city" [(ngModel)]="editData.city"><option *ngFor="let city of city">{{city.name}}
+						<input class="form-check-input" type="checkbox" [checked]="c1" name="c1" [(ngModel)]="editData.c1">
+						<label class="form-check-label">MCS</label>
+						<input class="form-check-input" type="checkbox" [checked]="c2" name="c2" [(ngModel)]="editData.c2">
+						<label class="form-check-label">MCA</label>
+						<input class="form-check-input" type="checkbox" [checked]="c3" name="c3" [(ngModel)]="editData.c3">
+						<label class="form-check-label">BCS</label>
+						<input class="form-check-input" type="checkbox" [checked]="c4" name="c4" [(ngModel)]="editData.c4">
+						<label class="form-check-label">BCA</label>
+					</div>
+					<div>
+						<label>City</label>
+					</div>
+					<select class="form-control" name="city" [(ngModel)]="editData.city"><option *ngFor="let city of city">{{city.name}}
             </option ></select>
-						<div>
-							<label>Gender</label>
-						</div>
-						<div class="dropdown">
-							<input type="radio" name="gender" [(ngModel)]="editData.gender" [value]="true"/><label >Male</label>
-							<input type="radio" name="gender" [(ngModel)]="editData.gender" [value]="false"/><label>Female</label>
-						</div>
-						<div>
-							<label>Description</label>
-							<textarea class="form-control" name="desc" [(ngModel)]="editData.description"></textarea>
-						</div>
-						<br/>
-						<div>
-							<button class="btn btn-primary" (click)="submitInfo(myForm.value)">Submit</button>
-						</div>
+					<div>
+						<label>Gender</label>
+					</div>
+					<div class="dropdown">
+						<input type="radio" name="gender" [(ngModel)]="editData.gender" [value]="true"/><label >Male</label>
+						<input type="radio" name="gender" [(ngModel)]="editData.gender" [value]="false"/><label>Female</label>
+					</div>
+					<div>
+						<label>Description</label>
+						<textarea class="form-control" name="desc" [(ngModel)]="editData.description"></textarea>
+					</div>
+					<br/>
+					<div>
+						<button class="btn btn-primary" (click)="submitInfo(myForm.value)">Submit</button>
+					</div>
 	</form>
 	<div>
 		<table class="table">

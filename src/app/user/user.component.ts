@@ -6,6 +6,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
+  age: number;
+  showAge: number;
   c1: boolean = false;
   c2: boolean = false;
   c3: boolean = false;
@@ -33,7 +35,14 @@ export class UserComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
+  ageCalculator() {
+    if (this.age) {
+      console.log("this.age", this.age);
+      const convertAge = new Date(this.age);
+      const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+      this.showAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+    }
+  }
   submitInfo(value) {
     console.log(".......", value.c1);
     if (value.gender == "true") {
@@ -41,11 +50,12 @@ export class UserComponent implements OnInit {
     } else {
       value.gender = "Female";
     }
-    if (value.c1 == true) {
-      value.c1 = "MCS";
-    } else {
-      value.c1 = " ";
-    }
+    // if (value.c1 == true || value.c2 == true) {
+    //   value.c1 = "MCS";
+    //   value.c2 = "MCA";
+    // } else {
+    //   value.c1 = " ";
+    // }
     this.userDetails.push(value);
     this.editData.firstName = " ";
     this.editData.middleName = "";
