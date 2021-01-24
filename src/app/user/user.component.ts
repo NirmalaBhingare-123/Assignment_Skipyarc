@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   c3: boolean = false;
   c4: boolean = false;
   userDetails = [];
+
   editData = {
     firstName: "",
     middleName: "",
@@ -37,24 +38,31 @@ export class UserComponent implements OnInit {
   ngOnInit() {}
   ageCalculator() {
     if (this.age) {
-      console.log("this.age", this.age);
       const convertAge = new Date(this.age);
       const timeDiff = Math.abs(Date.now() - convertAge.getTime());
       this.showAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
     }
   }
   submitInfo(value) {
-    console.log(".......", value);
-    if (value.gender == "true") {
+    if (value.gender == true) {
       value.gender = "Male";
     } else {
       value.gender = "Female";
     }
+
     if (value.c1 == true) {
       value.c1 = "MCS";
-    } else {
-      value.c1 = " ";
     }
+    if (value.c2 == true) {
+      value.c2 = "MCA";
+    }
+    if (value.c3 == true) {
+      value.c3 = "BCS";
+    }
+    if (value.c4 == true) {
+      value.c4 = "BCA";
+    }
+
     this.userDetails.push(value);
     this.editData.firstName = " ";
     this.editData.middleName = "";
@@ -69,6 +77,11 @@ export class UserComponent implements OnInit {
     this.editData.description = "";
   }
   editElement(data) {
+    if (data.gender == "Male") {
+      data.gender = true;
+    } else if (data.gender == "Female") {
+      data.gender = false;
+    }
     this.editData.firstName = data.fname;
     this.editData.middleName = data.mname;
     this.editData.lastName = data.lname;
