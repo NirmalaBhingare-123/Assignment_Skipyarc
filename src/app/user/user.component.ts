@@ -13,8 +13,16 @@ export class UserComponent implements OnInit {
   userDetails = [];
   editData = {
     firstName: "",
+    middleName: "",
     lastName: "",
-    dateOfBirth: ""
+    dateOfBirth: "",
+    c1: "",
+    c2: "",
+    c3: "",
+    c4: "",
+    city: "",
+    gender: "",
+    description: ""
   };
   city = [
     { id: 1, name: "Pune" },
@@ -27,11 +35,41 @@ export class UserComponent implements OnInit {
   ngOnInit() {}
 
   submitInfo(value) {
-    console.log("all info", value);
+    console.log(".......", value.c1);
+    if (value.gender == "true") {
+      value.gender = "Male";
+    } else {
+      value.gender = "Female";
+    }
+    if (value.c1 == true) {
+      value.c1 = "MCS";
+    } else {
+      value.c1 = " ";
+    }
     this.userDetails.push(value);
     this.editData.firstName = " ";
+    this.editData.middleName = "";
+    this.editData.lastName = "";
+    this.editData.dateOfBirth = "";
+    this.editData.c1 = "";
+    this.editData.c2 = "";
+    this.editData.c3 = "";
+    this.editData.c4 = "";
+    this.editData.city = "";
+    this.editData.gender = "";
+    this.editData.description = "";
   }
   editElement(data) {
     this.editData.firstName = data.fname;
+    this.editData.middleName = data.mname;
+    this.editData.lastName = data.lname;
+    this.editData.dateOfBirth = data.dob;
+    this.editData.c1 = data.c1;
+    this.editData.c2 = data.c2;
+    this.editData.c3 = data.c3;
+    this.editData.c4 = data.c4;
+    this.editData.city = data.city;
+    this.editData.gender = data.gender;
+    this.editData.description = data.desc;
   }
 }
