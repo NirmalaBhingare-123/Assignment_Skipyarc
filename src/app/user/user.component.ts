@@ -10,7 +10,12 @@ export class UserComponent implements OnInit {
   c2: boolean = false;
   c3: boolean = false;
   c4: boolean = false;
-
+  userDetails = [];
+  editData = {
+    firstName: "",
+    lastName: "",
+    dateOfBirth: ""
+  };
   city = [
     { id: 1, name: "Pune" },
     { id: 2, name: "Mumbai" },
@@ -23,5 +28,10 @@ export class UserComponent implements OnInit {
 
   submitInfo(value) {
     console.log("all info", value);
+    this.userDetails.push(value);
+    this.editData.firstName = " ";
+  }
+  editElement(data) {
+    this.editData.firstName = data.fname;
   }
 }
